@@ -1,5 +1,10 @@
 import { useState } from "react";
+import Header from "./Header";
+import Scrol from "./Scrol";
+
 import { motion } from "framer-motion";
+
+
 
 function Put(){
     const [image, setImage] = useState(null);
@@ -18,12 +23,14 @@ function Put(){
     return(
         <>
         
-        <header>
-        <img className="logo" />
-        <h1 className="website_name">Fashion Website</h1>
-    </header>
+        <Header/>
 
-    <div class="navbar">
+        <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+>
+
+<div class="navbar">
         <button className="nav_button" data-name="biba" onClick={()=>brandClicked("biba")}>BIBA</button>
         <button className="nav_button" data-name="and"onClick={()=>brandClicked("and")}>AND</button>
         <button className="nav_button" data-name="RituKumar" onClick={()=>brandClicked("RituKumar")}>Ritu Kumar</button>
@@ -32,13 +39,17 @@ function Put(){
     </div>
 
     <div className="insert_image">
-        <img src={image} className="brand_image" useMap="#workmap"></img>
+        <img src={image} className="brand_image"></img>
 
-        <map name="workmap">
-        <area shape="rect" coords="314,390,181,143" alt="Ractangle" href="dummy.html" />
-        <area shape="rect" coords="380,676,119,674" alt="Ractangle" href="dummy.html"></area>
-        </map>
+        
+        
     </div>
+</motion.div>
+
+<Scrol/>
+        
+
+    
 
         </>
     );
